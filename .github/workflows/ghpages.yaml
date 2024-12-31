@@ -1,0 +1,31 @@
+name: Build and Deploy example
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Use pnpm 📦
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install
+        run: |
+          pnpm i --frozen-lockfile
+          cd ./example
+          pnpm i --frozen-lockfile
+      - name: Build 🔧
+        run:
+          pnpm build
+        working-directory: ./example
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./example/dist

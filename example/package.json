@@ -1,0 +1,27 @@
+{
+  "name": "example",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "alias": {
+    "react": "../node_modules/react",
+    "react-dom": "../node_modules/react-dom/profiling",
+    "dayjs": "../node_modules/dayjs",
+    "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react-swc": "3.5.0",
+    "@tsconfig/create-react-app": "2.0.5",
+    "typescript": "5.7.2",
+    "vite": "6.0.6"
+  }
+}
