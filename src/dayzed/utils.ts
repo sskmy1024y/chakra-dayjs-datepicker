@@ -1,4 +1,4 @@
-import dayjs, { Dayjs, isDayjs } from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { Calendar, DateItem, DateObj, Month } from './types'
 import { EmptyDate } from './types'
 import { EventHandler, SyntheticEvent } from 'react'

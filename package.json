@@ -1,6 +1,6 @@
 {
   "name": "chakra-dayjs-datepicker",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "chakra + dayjs = datepicker",
   "author": "sho",
   "license": "MIT",
@@ -8,8 +8,7 @@
   "module": "dist/chakra-dayjs-datepicker.esm.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "homepage": "https://sskmy1024y.github.io/chakra-dayjs-datepicker",
   "repository": {
