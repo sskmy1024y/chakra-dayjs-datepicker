@@ -1,8 +1,10 @@
 import {
   BoxProps,
+  FlexProps,
   HeadingProps,
   InputProps,
   PopoverBodyProps,
+  PopoverRootProps,
   SeparatorProps,
   SimpleGridProps,
   StackProps,
@@ -31,6 +33,7 @@ export interface DayOfMonthBtnStyleProps {
 }
 
 export interface PopoverCompProps {
+  popoverRootProps?: PopoverRootProps
   popoverContentProps?: PopoverContentProps
   popoverBodyProps?: PopoverBodyProps
 }
@@ -47,6 +50,7 @@ export interface PropsConfigs {
   dateNavBtnProps?: ButtonProps
   dayOfMonthBtnProps?: DayOfMonthBtnStyleProps
   inputProps?: InputProps
+  inputWrapProps?: FlexProps
   triggerBtnProps?: ButtonProps
   popoverCompProps?: PopoverCompProps
   calendarPanelProps?: CalendarPanelProps

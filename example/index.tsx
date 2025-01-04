@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { StrictMode, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { StrictMode, useRef, useState } from 'react'
+import { createRoot } from 'react-dom/client'
 import {
   Box,
   Button,
@@ -19,7 +19,7 @@ import {
   Tabs,
   Text,
   VStack,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
 import {
   SingleDatepicker,
   RangeDatepicker,
@@ -29,8 +29,8 @@ import {
   CalendarPanel,
   OnDateSelected,
   RangeCalendarPanel,
-} from '../src';
-import { Switch } from './snippet/switch';
+} from '../src'
+import { Switch } from './snippet/switch'
 import {
   DialogBackdrop,
   DialogBody,
@@ -39,30 +39,30 @@ import {
   DialogFooter,
   DialogHeader,
   DialogRoot,
-} from './snippet/dialog';
-import { ThemeProvider, useTheme } from './snippet/color-mode';
-import dayjs, { Dayjs, isDayjs } from 'dayjs';
+} from './snippet/dialog'
+import { ThemeProvider, useTheme } from './snippet/color-mode'
+import dayjs, { Dayjs, isDayjs } from 'dayjs'
 
-type FirstDayOfWeek = DatepickerConfigs['firstDayOfWeek'];
-const offsets: FirstDayOfWeek[] = [0, 1, 2, 3, 4, 5, 6];
+type FirstDayOfWeek = DatepickerConfigs['firstDayOfWeek']
+const offsets: FirstDayOfWeek[] = [0, 1, 2, 3, 4, 5, 6]
 
-const demoDate = dayjs();
+const demoDate = dayjs()
 
 const App = () => {
-  const { theme, setTheme } = useTheme();
-  const [date, setDate] = useState<Dayjs | undefined>(demoDate);
+  const { theme, setTheme } = useTheme()
+  const [date, setDate] = useState<Dayjs | undefined>(demoDate)
   const [selectedDates, setSelectedDates] = useState<Dayjs[]>([
     dayjs(),
     dayjs(),
-  ]);
-  const [firstDayOfWeek, setFirstDayOfWeek] = useState<FirstDayOfWeek>(1);
-  const [isSingleChecked, setSingleCheck] = useState(true);
-  const [isRangeChecked, setRangeCheck] = useState(true);
-  const [open, setOpen] = useState(false);
-  const modalRef = useRef(null);
+  ])
+  const [firstDayOfWeek, setFirstDayOfWeek] = useState<FirstDayOfWeek>(1)
+  const [isSingleChecked, setSingleCheck] = useState(true)
+  const [isRangeChecked, setRangeCheck] = useState(true)
+  const [open, setOpen] = useState(false)
+  const modalRef = useRef(null)
 
   const onOpenChange = (e: DialogOpenChangeDetails) => {
-    setOpen(e.open);
+    setOpen(e.open)
   }
 
   return (
@@ -98,7 +98,7 @@ const App = () => {
       <Button
         size="sm"
         onClick={() => {
-          setTheme(theme === 'dark' ? 'light' : 'dark');
+          setTheme(theme === 'dark' ? 'light' : 'dark')
         }}
       >
         Toggle {theme === 'light' ? 'Dark' : 'Light'}
@@ -168,7 +168,7 @@ const App = () => {
                       name="closeOnSelect-switch"
                       checked={isSingleChecked}
                       onCheckedChange={(e: CheckboxCheckedChangeDetails) => {
-                        if (typeof e.checked === "boolean") {
+                        if (typeof e.checked === 'boolean') {
                           setSingleCheck(e.checked)
                         }
                       }}
@@ -176,7 +176,7 @@ const App = () => {
                     <Button
                       size={'sm'}
                       onClick={() => {
-                        setDate(undefined);
+                        setDate(undefined)
                       }}
                     >
                       Set Empty (undefined)
@@ -191,14 +191,14 @@ const App = () => {
                       disabledDates={
                         new Set([
                           demoDate.unix(),
-                          demoDate.subtract(6, "day").startOf("date").unix(),
-                          demoDate.subtract(4, "day").startOf("date").unix(),
-                          demoDate.subtract(2, "day").startOf("date").unix(),
+                          demoDate.subtract(6, 'day').startOf('date').unix(),
+                          demoDate.subtract(4, 'day').startOf('date').unix(),
+                          demoDate.subtract(2, 'day').startOf('date').unix(),
                         ])
                       }
                       propsConfigs={{}}
-                      minDate={demoDate.subtract(8, "day")}
-                      maxDate={demoDate.add(8, "day")}
+                      minDate={demoDate.subtract(8, 'day')}
+                      maxDate={demoDate.add(8, 'day')}
                       onDateChange={setDate}
                       closeOnSelect={isSingleChecked}
                     />
@@ -212,13 +212,13 @@ const App = () => {
                       disabledDates={
                         new Set([
                           demoDate.unix(),
-                          demoDate.subtract(6, "day").startOf("date").unix(),
-                          demoDate.subtract(4, "day").startOf("date").unix(),
-                          demoDate.subtract(2, "day").startOf("date").unix(),
+                          demoDate.subtract(6, 'day').startOf('date').unix(),
+                          demoDate.subtract(4, 'day').startOf('date').unix(),
+                          demoDate.subtract(2, 'day').startOf('date').unix(),
                         ])
                       }
-                      minDate={demoDate.subtract(8, "day")}
-                      maxDate={demoDate.add(8, "day")}
+                      minDate={demoDate.subtract(8, 'day')}
+                      maxDate={demoDate.add(8, 'day')}
                       onDateChange={setDate}
                       closeOnSelect={isSingleChecked}
                     />
@@ -231,7 +231,7 @@ const App = () => {
                       name="closeOnSelect-switch"
                       checked={isRangeChecked}
                       onCheckedChange={(e: CheckboxCheckedChangeDetails) => {
-                        if (typeof e.checked === "boolean") {
+                        if (typeof e.checked === 'boolean') {
                           setSingleCheck(e.checked)
                         }
                       }}
@@ -239,7 +239,7 @@ const App = () => {
                     <Button
                       size={'sm'}
                       onClick={() => {
-                        setSelectedDates([]);
+                        setSelectedDates([])
                       }}
                     >
                       {`Set Empty (Empty Array: "[]")`}
@@ -280,12 +280,12 @@ const App = () => {
                         <Flex flexDir={'column'} gap={2}>
                           <div>Default:</div>
                           <SingleDatepicker
-                            id='modal-default'
+                            id="modal-default"
                             date={date}
                             onDateChange={setDate}
                           />
                           <RangeDatepicker
-                            id='modal-range-default'
+                            id="modal-range-default"
                             selectedDates={selectedDates}
                             onDateChange={setSelectedDates}
                           />
@@ -294,14 +294,14 @@ const App = () => {
                             please add <code> {`portalRef={modalRef}`}</code>
                           </div>
                           <SingleDatepicker
-                            id='modal-ref-default'
+                            id="modal-ref-default"
                             date={date}
                             onDateChange={setDate}
                             usePortal={true}
                             portalRef={modalRef}
                           />
                           <RangeDatepicker
-                            id='modal-range-ref-default'
+                            id="modal-range-ref-default"
                             selectedDates={selectedDates}
                             onDateChange={setSelectedDates}
                             usePortal={true}
@@ -310,7 +310,11 @@ const App = () => {
                         </Flex>
                       </DialogBody>
                       <DialogFooter>
-                        <Button colorScheme="blue" mr={3} onClick={() => setOpen(false)}>
+                        <Button
+                          colorScheme="blue"
+                          mr={3}
+                          onClick={() => setOpen(false)}
+                        >
                           Close
                         </Button>
                         <Button variant="ghost">Secondary Action</Button>
@@ -408,6 +412,21 @@ const App = () => {
                     },
                   }}
                 />
+                <Flex w={'360px'}>
+                  <RangeDatepicker
+                    selectedDates={selectedDates}
+                    onDateChange={setSelectedDates}
+                    triggerVariant={'input'}
+                    propsConfigs={{
+                      inputWrapProps: {
+                        w: '100%',
+                      },
+                      inputProps: {
+                        w: '100%',
+                      },
+                    }}
+                  />
+                </Flex>
               </Section>
             </Panel>
           </Tabs.Content>
@@ -477,26 +496,26 @@ const App = () => {
         </Tabs.ContentGroup>
       </Tabs.Root>
     </VStack>
-  );
-};
+  )
+}
 
 const SingleCalendarDemo = () => {
-  const demoDate = dayjs();
-  const [date, setDate] = useState(demoDate);
+  const demoDate = dayjs()
+  const [date, setDate] = useState(demoDate)
 
   const handleOnDateSelected = (props: {
-    date: Dayjs;
-    nextMonth: boolean;
-    prevMonth: boolean;
-    selectable: boolean;
-    selected: boolean;
-    today: boolean;
+    date: Dayjs
+    nextMonth: boolean
+    prevMonth: boolean
+    selectable: boolean
+    selected: boolean
+    today: boolean
   }) => {
-    const { date } = props;
+    const { date } = props
     if (isDayjs(date)) {
-      setDate(date);
+      setDate(date)
     }
-  };
+  }
 
   return (
     <Box>
@@ -506,8 +525,8 @@ const SingleCalendarDemo = () => {
           showOutsideDays: true,
           onDateSelected: handleOnDateSelected,
           selected: date,
-          minDate: demoDate.subtract(8, "day"),
-          maxDate: demoDate.add(8, "day")
+          minDate: demoDate.subtract(8, 'day'),
+          maxDate: demoDate.add(8, 'day'),
         }}
         configs={{
           dateFormat: 'YYYY-MM-DD',
@@ -517,47 +536,45 @@ const SingleCalendarDemo = () => {
         }}
       />
     </Box>
-  );
-};
+  )
+}
 
 const RangeCalendarDemo = () => {
-  const demoDate = dayjs();
+  const demoDate = dayjs()
   const [selectedDates, setSelectedDates] = useState<Dayjs[]>([
     demoDate,
     demoDate,
-  ]);
+  ])
 
   const handleOnDateSelected: OnDateSelected = ({ selectable, date }) => {
-    let newDates = [...selectedDates];
+    let newDates = [...selectedDates]
     if (selectedDates.length) {
       if (selectedDates.length === 1) {
-        let firstTime = selectedDates[0];
+        let firstTime = selectedDates[0]
         if (firstTime < date) {
-          newDates.push(date);
+          newDates.push(date)
         } else {
-          newDates.unshift(date);
+          newDates.unshift(date)
         }
-        setSelectedDates(newDates);
-        return;
+        setSelectedDates(newDates)
+        return
       }
 
       if (newDates.length === 2) {
-        setSelectedDates([date]);
-        return;
+        setSelectedDates([date])
+        return
       }
     } else {
-      newDates.push(date);
-      setSelectedDates(newDates);
+      newDates.push(date)
+      setSelectedDates(newDates)
     }
-  };
+  }
 
   // eventually we want to allow user to freely type their own input and parse the input
-  let intVal = selectedDates[0]
-    ? selectedDates[0].format('YYYY-MM-DD')
-    : '';
+  let intVal = selectedDates[0] ? selectedDates[0].format('YYYY-MM-DD') : ''
   intVal += selectedDates[1]
     ? ` - ${selectedDates[1].format('YYYY-MM-DD')}`
-    : '';
+    : ''
 
   return (
     <Box>
@@ -578,8 +595,8 @@ const RangeCalendarDemo = () => {
         }}
       />
     </Box>
-  );
-};
+  )
+}
 
 const Section: React.FC<React.PropsWithChildren<{ title?: string }>> = ({
   title,
@@ -589,7 +606,7 @@ const Section: React.FC<React.PropsWithChildren<{ title?: string }>> = ({
     <Heading size="md">{title}</Heading>
     {children}
   </VStack>
-);
+)
 
 const Panel: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
   <Flex>
@@ -598,7 +615,7 @@ const Panel: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
     </Box>
     <Box>{children}</Box>
   </Flex>
-);
+)
 
 const system = createSystem(defaultConfig, {
   theme: {
@@ -609,9 +626,9 @@ const system = createSystem(defaultConfig, {
       },
     },
   },
-});
+})
 
-const root = createRoot(document.getElementById('root')!);
+const root = createRoot(document.getElementById('root')!)
 root.render(
   <StrictMode>
     <ThemeProvider defaultTheme="light">
@@ -619,5 +636,5 @@ root.render(
         <App />
       </ChakraProvider>
     </ThemeProvider>
-  </StrictMode>
-);
+  </StrictMode>,
+)

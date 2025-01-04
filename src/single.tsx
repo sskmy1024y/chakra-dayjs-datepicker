@@ -191,6 +191,7 @@ export const SingleDatepicker: React.FC<SingleDatepickerProps> = ({
       open={open}
       onOpenChange={onOpenChange}
       lazyMount
+      {...restProps.propsConfigs?.popoverCompProps?.popoverRootProps}
     >
       {!children && (restProps.triggerVariant ?? 'default') === 'default' ? (
         <PopoverTrigger asChild>
@@ -210,7 +211,11 @@ export const SingleDatepicker: React.FC<SingleDatepickerProps> = ({
         </PopoverTrigger>
       ) : null}
       {!children && restProps.triggerVariant === 'input' ? (
-        <Flex position="relative" alignItems={'center'}>
+        <Flex
+          position="relative"
+          alignItems="center"
+          {...restProps.propsConfigs?.inputWrapProps}
+        >
           <PopoverAnchor>
             <Input
               id={id}

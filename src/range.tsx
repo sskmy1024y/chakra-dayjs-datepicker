@@ -219,6 +219,7 @@ export const RangeDatepicker: React.FC<RangeDatepickerProps> = ({
       open={open}
       onOpenChange={onOpenChange}
       lazyMount
+      {...restProps.propsConfigs?.popoverCompProps?.popoverRootProps}
     >
       {!children && (restProps.triggerVariant ?? 'default') === 'default' ? (
         <PopoverTrigger asChild>
@@ -236,8 +237,12 @@ export const RangeDatepicker: React.FC<RangeDatepickerProps> = ({
         </PopoverTrigger>
       ) : null}
       {!children && restProps.triggerVariant === 'input' ? (
-        <Flex position="relative" alignItems={'center'}>
-          <PopoverAnchor>
+        <Flex
+          position="relative"
+          alignItems="center"
+          {...restProps.propsConfigs?.inputWrapProps}
+        >
+          <PopoverAnchor w={'100%'}>
             <Input
               id={id}
               onKeyPress={(e) => {
