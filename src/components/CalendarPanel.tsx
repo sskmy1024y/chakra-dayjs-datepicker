@@ -112,7 +112,7 @@ export const CalendarPanel: React.FC<CalendarPanelProps> = ({
                 textAlign="center"
                 {...propsConfigs?.dateHeadingProps}
               >
-                {configs.monthNames[calendar.month]} {calendar.year}
+                {calendar.start.format(configs.headerFormat)}
               </Heading>
               <DatepickerForwardBtns
                 calendars={calendars}

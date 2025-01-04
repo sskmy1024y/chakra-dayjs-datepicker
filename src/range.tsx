@@ -1,6 +1,6 @@
 import React, { RefObject, useCallback, useId, useMemo, useState } from 'react'
 import { DayzedProps } from './dayzed'
-import { Month_Names_Short, Weekday_Names_Short } from './utils/calanderUtils'
+import { Weekday_Names_Short } from './utils/calanderUtils'
 import { Flex, Input, PopoverOpenChangeDetails, Portal } from '@chakra-ui/react'
 import { CalendarPanel } from './components/CalendarPanel'
 import {
@@ -105,7 +105,7 @@ export type RangeDatepickerProps = RangeProps & VariantProps
 
 const DefaultConfigs: Required<DatepickerConfigs> = {
   dateFormat: 'MM/DD/YYYY',
-  monthNames: Month_Names_Short,
+  headerFormat: 'MMM YYYY',
   dayNames: Weekday_Names_Short,
   firstDayOfWeek: 0,
   monthsToDisplay: 2,

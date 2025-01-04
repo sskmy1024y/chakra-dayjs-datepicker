@@ -60,7 +60,7 @@ export interface PropsConfigs {
 
 export interface DatepickerConfigs {
   dateFormat?: string
-  monthNames?: string[]
+  headerFormat?: string
   dayNames?: string[]
   firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6
   monthsToDisplay?: number
@@ -68,7 +68,7 @@ export interface DatepickerConfigs {
 
 export interface CalendarConfigs {
   dateFormat: string
-  monthNames: string[]
+  headerFormat: string
   dayNames: string[]
   firstDayOfWeek: 0 | 1 | 2 | 3 | 4 | 5 | 6
 }
