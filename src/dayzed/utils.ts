@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { Dayjs, isDayjs } from 'dayjs'
 import { Calendar, DateItem, DateObj, Month } from './types'
 import { EmptyDate } from './types'
 import { EventHandler, SyntheticEvent } from 'react'
@@ -36,11 +36,11 @@ export function subtractMonth({
   offset: number
   minDate?: Dayjs
 }): number {
-  if (offset > 1 && minDate) {
-    const firstDayOfMonth = calendars[0].start.startOf('month')
+  const firstDayOfMonth = calendars.at(0)?.start.startOf('month')
+  if (offset > 1 && minDate && firstDayOfMonth) {
     const diffInMonths = firstDayOfMonth.diff(minDate, 'month')
     if (diffInMonths < offset) {
-      offset = diffInMonths
+      return diffInMonths
     }
   }
   return offset

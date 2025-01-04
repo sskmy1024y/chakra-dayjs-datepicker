@@ -157,7 +157,7 @@ export const RangeDatepicker: React.FC<RangeDatepickerProps> = ({
 
   const onPopoverClose = useCallback(() => {
     onClose()
-    setDateInView(selectedDates[0] || new Date())
+    setDateInView(selectedDates[0] || dayjs())
     setOffset(0)
   }, [onClose, selectedDates])
 
